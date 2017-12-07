@@ -121,6 +121,15 @@ let createGun = () => {
   grid.state[14][13].state = 1;
 }
 
+let randomizeGrid = () => {
+  for (let i = 0; i < CELLS_PER_ROW; i++) {
+    for (let j = 0; j < CELLS_PER_ROW; j++) {
+      let rand = Math.floor(Math.random() * 2);
+      grid.state[i][j].state = rand;
+    }
+  }
+}
+
 let init = () => {
 
   grid = new Grid(CELLS_PER_ROW, CELL_SIZE);
