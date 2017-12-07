@@ -7,7 +7,7 @@ const FPS = 5;
 
 let grid, loop;
 
-let createSymbol = () => {
+let createPulsar = () => {
 
   reset();
 
@@ -68,6 +68,42 @@ let createSymbol = () => {
   grid.state[14][10].state = 1;
   grid.state[14][11].state = 1;
   grid.state[14][12].state = 1;
+}
+
+let createPentadecathlon = () => {
+
+  reset();
+
+  grid.state[4][5].state = 1;
+  grid.state[5][5].state = 1;
+  grid.state[6][5].state = 1;
+
+  grid.state[4][6].state = 1;
+  grid.state[6][6].state = 1;
+
+  grid.state[4][7].state = 1;
+  grid.state[5][7].state = 1;
+  grid.state[6][7].state = 1;
+
+  grid.state[4][8].state = 1;
+  grid.state[5][8].state = 1;
+  grid.state[6][8].state = 1;
+
+  grid.state[4][9].state = 1;
+  grid.state[5][9].state = 1;
+  grid.state[6][9].state = 1;
+
+  grid.state[4][10].state = 1;
+  grid.state[5][10].state = 1;
+  grid.state[6][10].state = 1;
+
+  grid.state[4][11].state = 1;
+  grid.state[6][11].state = 1;
+
+  grid.state[4][12].state = 1;
+  grid.state[5][12].state = 1;
+  grid.state[6][12].state = 1;
+
 }
 
 let createGun = () => {
