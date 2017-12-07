@@ -3,7 +3,7 @@ const gridCtx = gridCanvas.getContext("2d");
 
 const CELLS_PER_ROW = 38;
 const CELL_SIZE = gridCanvas.width / CELLS_PER_ROW;
-const FPS = 5;
+const FPS = 8;
 
 let grid, loop;
 
