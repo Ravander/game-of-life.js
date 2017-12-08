@@ -1,3 +1,5 @@
+"use strict";
+
 const gridCanvas = document.getElementById("automata");
 const gridCtx = gridCanvas.getContext("2d");
 
@@ -12,97 +14,44 @@ let createPulsar = () => {
   reset();
 
   /* Horizontal Bars*/
-  grid.state[4][2].state = 1;
-  grid.state[5][2].state = 1;
-  grid.state[6][2].state = 1;
-  grid.state[10][2].state = 1;
-  grid.state[11][2].state = 1;
-  grid.state[12][2].state = 1;
+  for (let i = 4; i <= 6; i++) grid.state[i][2].state = 1;
+  for (let i = 10; i <= 12; i++) grid.state[i][2].state = 1;
 
-  grid.state[4][7].state = 1;
-  grid.state[5][7].state = 1;
-  grid.state[6][7].state = 1;
-  grid.state[10][7].state = 1;
-  grid.state[11][7].state = 1;
-  grid.state[12][7].state = 1;
+  for (let i = 4; i <= 6; i++) grid.state[i][7].state = 1;
+  for (let i = 10; i <= 12; i++) grid.state[i][7].state = 1;
 
-  grid.state[4][9].state = 1;
-  grid.state[5][9].state = 1;
-  grid.state[6][9].state = 1;
-  grid.state[10][9].state = 1;
-  grid.state[11][9].state = 1;
-  grid.state[12][9].state = 1;
+  for (let i = 4; i <= 6; i++) grid.state[i][9].state = 1;
+  for (let i = 10; i <= 12; i++) grid.state[i][9].state = 1;
 
-  grid.state[4][14].state = 1;
-  grid.state[5][14].state = 1;
-  grid.state[6][14].state = 1;
-  grid.state[10][14].state = 1;
-  grid.state[11][14].state = 1;
-  grid.state[12][14].state = 1;
+  for (let i = 4; i <= 6; i++) grid.state[i][14].state = 1;
+  for (let i = 10; i <= 12; i++) grid.state[i][14].state = 1;
 
   /* Vertical Bars*/
-  grid.state[2][4].state = 1;
-  grid.state[2][5].state = 1;
-  grid.state[2][6].state = 1;
-  grid.state[2][10].state = 1;
-  grid.state[2][11].state = 1;
-  grid.state[2][12].state = 1;
+  for (let i = 4; i <= 6; i++) grid.state[2][i].state = 1;
+  for (let i = 10; i <= 12; i++) grid.state[2][i].state = 1;
 
-  grid.state[7][4].state = 1;
-  grid.state[7][5].state = 1;
-  grid.state[7][6].state = 1;
-  grid.state[7][10].state = 1;
-  grid.state[7][11].state = 1;
-  grid.state[7][12].state = 1;
+  for (let i = 4; i <= 6; i++) grid.state[7][i].state = 1;
+  for (let i = 10; i <= 12; i++) grid.state[7][i].state = 1;
 
-  grid.state[9][4].state = 1;
-  grid.state[9][5].state = 1;
-  grid.state[9][6].state = 1;
-  grid.state[9][10].state = 1;
-  grid.state[9][11].state = 1;
-  grid.state[9][12].state = 1;
+  for (let i = 4; i <= 6; i++) grid.state[9][i].state = 1;
+  for (let i = 10; i <= 12; i++) grid.state[9][i].state = 1;
 
-  grid.state[14][4].state = 1;
-  grid.state[14][5].state = 1;
-  grid.state[14][6].state = 1;
-  grid.state[14][10].state = 1;
-  grid.state[14][11].state = 1;
-  grid.state[14][12].state = 1;
+  for (let i = 4; i <= 6; i++) grid.state[14][i].state = 1;
+  for (let i = 10; i <= 12; i++) grid.state[14][i].state = 1;
 }
 
 let createPentadecathlon = () => {
 
   reset();
 
-  grid.state[4][5].state = 1;
-  grid.state[5][5].state = 1;
-  grid.state[6][5].state = 1;
-
-  grid.state[4][6].state = 1;
-  grid.state[6][6].state = 1;
-
-  grid.state[4][7].state = 1;
-  grid.state[5][7].state = 1;
-  grid.state[6][7].state = 1;
-
-  grid.state[4][8].state = 1;
-  grid.state[5][8].state = 1;
-  grid.state[6][8].state = 1;
-
-  grid.state[4][9].state = 1;
-  grid.state[5][9].state = 1;
-  grid.state[6][9].state = 1;
-
-  grid.state[4][10].state = 1;
-  grid.state[5][10].state = 1;
-  grid.state[6][10].state = 1;
-
-  grid.state[4][11].state = 1;
-  grid.state[6][11].state = 1;
-
-  grid.state[4][12].state = 1;
-  grid.state[5][12].state = 1;
-  grid.state[6][12].state = 1;
+  for (let i = 4; i <= 6; i++) grid.state[i][5].state = 1;
+  for (let i = 4; i <= 6; i += 2) grid.state[i][6].state = 1;
+  for (let i = 4; i <= 6; i++) grid.state[i][7].state = 1;
+  for (let i = 4; i <= 6; i++) grid.state[i][8].state = 1;
+  for (let i = 4; i <= 6; i++) grid.state[i][9].state = 1;
+  for (let i = 4; i <= 6; i++) grid.state[i][10].state = 1;
+  for (let i = 4; i <= 6; i += 2) grid.state[i][11].state = 1;
+  for (let i = 4; i <= 6; i++) grid.state[i][12].state = 1;
 
 }
 

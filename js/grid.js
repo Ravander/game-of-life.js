@@ -7,14 +7,14 @@ class Cell {
     this.x = x;
     this.y = y;
     this.size = size;
-    this.aliveColor = "#333333";
+    this.aliveColor = "#555555";
   }
   changeState(state) {
     if (!!state) {
       if (!!this.state) {
         this.aliveColor = "#222222";
       } else {
-        this.aliveColor = "#333333";
+        this.aliveColor = "#555555";
       }
       this.nextState = 1;
     } else {
@@ -34,6 +34,7 @@ class Cell {
       let jMax = 1;
       if (this.y == 0) j = 0;
       if (this.y == CELLS_PER_ROW - 1) jMax = 0;
+
       for (j; j <= jMax; j++) {
         if (i != 0 || j != 0) {
           if (state[this.x + i][this.y + j].state == 1) {
@@ -84,6 +85,7 @@ class Grid {
       this.state[i] = row;
     }
   }
+  
   update() {
     for (let i = 0; i < CELLS_PER_ROW; i++) {
       for (let j = 0; j < CELLS_PER_ROW; j++) {
