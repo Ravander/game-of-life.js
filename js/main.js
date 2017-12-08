@@ -13,97 +13,55 @@ let createPulsar = () => {
 
   reset();
 
-  /* Horizontal Bars*/
-  for (let i = 4; i <= 6; i++) grid.state[i][2].state = 1;
-  for (let i = 10; i <= 12; i++) grid.state[i][2].state = 1;
+  const coords = [
+    [4, 2], [5, 2], [6, 2], [10, 2], [11, 2], [12, 2], 
+    [4, 7], [5, 7], [6, 7], [10, 7], [11, 7], [12, 7],
+    [4, 9], [5, 9], [6, 9], [10, 9], [11, 9], [12, 9],
+    [4, 14], [5, 14], [6, 14], [10, 14], [11, 14], [12, 14], 
+    [2, 4], [2, 5], [2, 6], [2, 10], [2, 11], [2, 12], 
+    [7, 4], [7, 5], [7, 6], [7, 10], [7, 11], [7, 12], 
+    [9, 4], [9, 5], [9, 6], [9, 10], [9, 11], [9, 12], 
+    [14, 4], [14, 5], [14, 6], [14, 10], [14, 11], [14, 12]
+  ];
 
-  for (let i = 4; i <= 6; i++) grid.state[i][7].state = 1;
-  for (let i = 10; i <= 12; i++) grid.state[i][7].state = 1;
-
-  for (let i = 4; i <= 6; i++) grid.state[i][9].state = 1;
-  for (let i = 10; i <= 12; i++) grid.state[i][9].state = 1;
-
-  for (let i = 4; i <= 6; i++) grid.state[i][14].state = 1;
-  for (let i = 10; i <= 12; i++) grid.state[i][14].state = 1;
-
-  /* Vertical Bars*/
-  for (let i = 4; i <= 6; i++) grid.state[2][i].state = 1;
-  for (let i = 10; i <= 12; i++) grid.state[2][i].state = 1;
-
-  for (let i = 4; i <= 6; i++) grid.state[7][i].state = 1;
-  for (let i = 10; i <= 12; i++) grid.state[7][i].state = 1;
-
-  for (let i = 4; i <= 6; i++) grid.state[9][i].state = 1;
-  for (let i = 10; i <= 12; i++) grid.state[9][i].state = 1;
-
-  for (let i = 4; i <= 6; i++) grid.state[14][i].state = 1;
-  for (let i = 10; i <= 12; i++) grid.state[14][i].state = 1;
+  coords.forEach(([x, y]) => grid.state[x][y].state = 1);
 }
 
 let createPentadecathlon = () => {
 
   reset();
 
-  for (let i = 4; i <= 6; i++) grid.state[i][5].state = 1;
-  for (let i = 4; i <= 6; i += 2) grid.state[i][6].state = 1;
-  for (let i = 4; i <= 6; i++) grid.state[i][7].state = 1;
-  for (let i = 4; i <= 6; i++) grid.state[i][8].state = 1;
-  for (let i = 4; i <= 6; i++) grid.state[i][9].state = 1;
-  for (let i = 4; i <= 6; i++) grid.state[i][10].state = 1;
-  for (let i = 4; i <= 6; i += 2) grid.state[i][11].state = 1;
-  for (let i = 4; i <= 6; i++) grid.state[i][12].state = 1;
+  const coords = [
+    [4, 5], [5, 5], [6, 5], 
+    [4, 6], [6, 6],
+    [4, 7], [5, 7], [6, 7],
+    [4, 8], [5, 8], [6, 8],
+    [4, 9], [5, 9], [6, 9], 
+    [4, 10], [5, 10], [6, 10], 
+    [4, 11], [6, 11],
+    [4, 12], [5, 12], [6, 12]
+  ];
 
+  coords.forEach(([x, y]) => grid.state[x][y].state = 1);
 }
 
 let createGun = () => {
 
   reset();
 
-  /* Glider Gun */
-  grid.state[25][5].state = 1;
+  const coords = [
+    [25, 5], [5, 5], [6, 5], 
+    [23, 6], [25, 6],
+    [13, 7], [14, 7], [21, 7], [22, 7], [35, 7], [36, 7],
+    [12, 8], [16, 8], [21, 8], [22, 8], [35, 8], [36, 8],
+    [1, 9], [2, 9], [11, 9], [17, 9], [21, 9], [22, 9], 
+    [1, 10], [2, 10], [11, 10], [15, 10], [17, 10], [18, 10], [23, 10], [25, 10], 
+    [11, 11], [17, 11], [25, 11],
+    [12, 12], [16, 12],
+    [13, 13], [14, 13]
+  ];
 
-  grid.state[23][6].state = 1;
-  grid.state[25][6].state = 1;
-
-  grid.state[13][7].state = 1;
-  grid.state[14][7].state = 1;
-  grid.state[21][7].state = 1;
-  grid.state[22][7].state = 1;
-  grid.state[35][7].state = 1;
-  grid.state[36][7].state = 1;
-
-  grid.state[12][8].state = 1;
-  grid.state[16][8].state = 1;
-  grid.state[21][8].state = 1;
-  grid.state[22][8].state = 1;
-  grid.state[35][8].state = 1;
-  grid.state[36][8].state = 1;
-
-  grid.state[1][9].state = 1;
-  grid.state[2][9].state = 1;
-  grid.state[11][9].state = 1;
-  grid.state[17][9].state = 1;
-  grid.state[21][9].state = 1;
-  grid.state[22][9].state = 1;
-
-  grid.state[1][10].state = 1;
-  grid.state[2][10].state = 1;
-  grid.state[11][10].state = 1;
-  grid.state[15][10].state = 1;
-  grid.state[17][10].state = 1;
-  grid.state[18][10].state = 1;
-  grid.state[23][10].state = 1;
-  grid.state[25][10].state = 1;
-
-  grid.state[11][11].state = 1;
-  grid.state[17][11].state = 1;
-  grid.state[25][11].state = 1;
-
-  grid.state[12][12].state = 1;
-  grid.state[16][12].state = 1;
-
-  grid.state[13][13].state = 1;
-  grid.state[14][13].state = 1;
+  coords.forEach(([x, y]) => grid.state[x][y].state = 1);
 }
 
 let randomizeGrid = () => {
