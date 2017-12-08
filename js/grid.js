@@ -74,6 +74,7 @@ class Grid {
     this.cellSize = cellSize;
     this.state = [];
     this.init();
+    this.aliveCount = 0;
   }
 
   init() {
@@ -93,11 +94,16 @@ class Grid {
       }
     }
 
+    this.aliveCount = 0;
+
     for (let i = 0; i < CELLS_PER_ROW; i++) {
       for (let j = 0; j < CELLS_PER_ROW; j++) {
         this.state[i][j].state = this.state[i][j].nextState;
+        if (!!this.state[i][j].state) this.aliveCount++;
       }
     }
+
+    document.getElementById("counter").innerHTML = "Population: " + this.aliveCount;
   }
 
   draw(ctx) {
