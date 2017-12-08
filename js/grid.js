@@ -73,8 +73,8 @@ class Grid {
     this.size = size;
     this.cellSize = cellSize;
     this.state = [];
-    this.init();
     this.aliveCount = 0;
+    this.init();
   }
 
   init() {
