@@ -1,5 +1,3 @@
-"use strict";
-
 const gridCanvas = document.getElementById("automata");
 const gridCtx = gridCanvas.getContext("2d");
 
@@ -9,7 +7,7 @@ const FPS = 8;
 
 let grid, loop;
 
-let createPulsar = () => {
+const createPulsar = () => {
 
   reset();
 
@@ -25,9 +23,9 @@ let createPulsar = () => {
   ];
 
   coords.forEach(([x, y]) => grid.state[x][y].state = 1);
-}
+};
 
-let createPentadecathlon = () => {
+const createPentadecathlon = () => {
 
   reset();
 
@@ -43,9 +41,9 @@ let createPentadecathlon = () => {
   ];
 
   coords.forEach(([x, y]) => grid.state[x][y].state = 1);
-}
+};
 
-let createGun = () => {
+const createGun = () => {
 
   reset();
 
@@ -62,18 +60,18 @@ let createGun = () => {
   ];
 
   coords.forEach(([x, y]) => grid.state[x][y].state = 1);
-}
+};
 
-let randomizeGrid = () => {
-  for (let i = 0; i < CELLS_PER_ROW; i++) {
-    for (let j = 0; j < CELLS_PER_ROW; j++) {
-      let rand = Math.floor(Math.random() * 2);
-      grid.state[i][j].state = rand;
-    }
-  }
-}
+const randomizeGrid = () => {
+  grid.state.forEach(row => {
+    row.forEach(cell => {
+      const rand = Math.floor(Math.random() * 2);
+      cell.state = rand;
+    });
+  });
+};
 
-let init = () => {
+const init = () => {
 
   grid = new Grid(CELLS_PER_ROW, CELL_SIZE);
 
@@ -83,14 +81,14 @@ let init = () => {
     grid.update();
     grid.draw(gridCtx);
   }, 1000 / FPS);
-}
+};
 
-let reset = () => {
-  for (let i = 0; i < CELLS_PER_ROW; i++) {
-    for (let j = 0; j < CELLS_PER_ROW; j++) {
-      grid.state[i][j].state = 0;
-    }
-  }
-}
+const reset = () => {
+  grid.state.forEach(row => {
+    row.forEach(cell => {
+      cell.state = 0;
+    });
+  });
+};
 
 init();
