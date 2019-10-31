@@ -3,7 +3,7 @@ class Grid {
   constructor(size, cellSize) {
     this.size = size;
     this.cellSize = cellSize;
-    this.state = [];
+    this.gridState = [];
     this.aliveCount = 0;
     this.init();
   }
@@ -12,36 +12,25 @@ class Grid {
     for (let i = 0; i < this.size; i++) {
       const row = [];
       for (let j = 0; j < this.size; j++) {
-        row.push(new Cell(0, i, j, this.cellSize));
+        row.push(new Cell(false, i, j, this.cellSize));
       }
-      this.state[i] = row;
+      this.gridState[i] = row;
     }
   }
-  
+
   update() {
-    this.state.forEach(row => {
-      row.forEach(cell => {
-        cell.checkState(this.state);
-      });
-    });
-
+    this.gridState.flat().forEach(cell => cell.checkState(this.gridState));
     this.aliveCount = 0;
-
-    this.state.forEach(row => {
-      row.forEach(cell => {
-        cell.state = cell.nextState;
-        if (!!cell.state) this.aliveCount++;
-      });
+    this.gridState.flat().forEach(cell => {
+      cell.state = cell.nextState;
+      if (cell.state) this.aliveCount++;
     });
-
     document.querySelector("#counter").innerHTML = `Population: ${this.aliveCount}`;
   }
 
   draw(ctx) {
-    this.state.forEach(row => {
-      row.forEach(cell => {
-        cell.draw(ctx);
-      });
+    this.gridState.flat().forEach(cell => {
+      cell.draw(ctx);
     });
   }
 }
