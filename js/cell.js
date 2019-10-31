@@ -2,23 +2,20 @@ class Cell {
 
   constructor(state, x, y, size) {
     this.state = state;
-    this.nextState = 0;
+    this.nextState = false;
     this.x = x;
     this.y = y;
     this.size = size;
-    this.aliveColor = "#555555";
+    this.aliveColor = '#555555';
   }
 
   changeState(state) {
-    if (!!state) {
-      if (!!this.state) {
-        this.aliveColor = "#222222";
-      } else {
-        this.aliveColor = "#555555";
-      }
-      this.nextState = 1;
+    if (state) {
+      if (this.state) this.aliveColor = '#222222';
+      else this.aliveColor = '#555555';
+      this.nextState = true;
     } else {
-      this.nextState = 0;
+      this.nextState = false;
     }
   }
 
@@ -33,9 +30,9 @@ class Cell {
 
       for (j; j <= jMax; j++) {
         if (i !== 0 || j !== 0) {
-          if (state[this.x + i][this.y + j].state === 1) {
+          if (state[this.x + i][this.y + j].state) {
             aliveNeighbors++;
-          }   
+          }
         }
       }
     }
@@ -44,17 +41,17 @@ class Cell {
 
   checkState(state) {
     const aliveNeighbors = this.countAliveNeighbors(state);
-    if (!!this.state) {
-      if (aliveNeighbors < 2 || aliveNeighbors > 3) this.changeState(0);
-      else this.changeState(1);
+    if (this.state) {
+      if (aliveNeighbors < 2 || aliveNeighbors > 3) this.changeState(false);
+      else this.changeState(true);
     } else {
-      if (aliveNeighbors === 3) this.changeState(1);
-      else this.changeState(0);
+      if (aliveNeighbors === 3) this.changeState(true);
+      else this.changeState(false);
     }
   }
 
   draw(ctx) {
-    ctx.fillStyle = !!this.state ? this.aliveColor : '#EEEEEE';
+    ctx.fillStyle = this.state ? this.aliveColor : '#EEEEEE';
     ctx.strokeStyle = '#666666';
     ctx.fillRect(this.x * this.size, this.y * this.size, this.size, this.size);
     ctx.strokeRect(this.x * this.size, this.y * this.size, this.size, this.size);
